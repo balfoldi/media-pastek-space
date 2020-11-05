@@ -10,6 +10,9 @@ import {
 import {
   USER_LOGOUT
 } from './userTypes'
+import {
+  USER_LOGIN
+} from './userTypes'
 
 export const fetchUserRequest = () => {
   return {
@@ -18,6 +21,7 @@ export const fetchUserRequest = () => {
 };
 
 export const fetchUserSuccess = (user) => {
+  console.log("fetching")
   return {
     type: FETCH_USER_SUCCESS,
     user
@@ -34,5 +38,12 @@ export const fetchUserFailure = (error) => {
 export const userLogout = () => {
   return {
     type: USER_LOGOUT
+  }
+}
+
+export const userLogin = () => {
+  console.log("action user logging")
+  return {
+    type: USER_LOGIN
   }
 }

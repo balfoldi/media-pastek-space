@@ -10,15 +10,19 @@ import {
 import {
   USER_LOGOUT
 } from './userTypes'
-
+import {
+  USER_LOGIN
+} from './userTypes'
+import Cookies from 'js-cookie'
 
 const userInitialState = {
   loading: false,
-  user: {},
+  user: Cookies.get("user") ? JSON.parse(Cookies.get("user")) : {},
   error: "",
 };
 
 const userReducer = (state = userInitialState, action) => {
+  console.log("userReducer")
   switch (action.type) {
     case FETCH_USER_REQUEST:
       return {
@@ -29,20 +33,28 @@ const userReducer = (state = userInitialState, action) => {
       return {
         ...state,
         loading: false,
-        error: "",
-        user: action.user
+          error: "",
+          user: action.user
       };
     case FETCH_USER_FAILURE:
       return {
         ...state,
         loading: false,
-        user: {},
-        error: action.error
+          user: {},
+          error: action.error
       };
     case USER_LOGOUT:
       return {
         ...state,
-        user:{}
+        user: {}
+      };
+    case USER_LOGIN:
+      console.log("reducer user logging")
+      return {
+        ...state,
+        user: {
+          tutu: "tatata"
+        } //
       };
     default:
       return state;

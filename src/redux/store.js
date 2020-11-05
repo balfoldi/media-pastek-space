@@ -1,4 +1,5 @@
 import userReducer from './user/userReducer'
+import postReducer from './posts/postReducer'
 import {
   createStore,
   combineReducers,
@@ -9,6 +10,7 @@ import thunkMiddleware from "redux-thunk";
 
 const rootReducer = combineReducers({
   userCreate: userReducer,
+  posts: postReducer
 });
 
 let store = createStore(

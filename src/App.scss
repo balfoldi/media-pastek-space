@@ -1,6 +1,17 @@
 @import '~bootstrap/scss/bootstrap';
 @import './components/Header/_styles.scss';
+@import './components/ProfilShowCard/_styles.scss';
+@import './components/PostsList/_styles.scss';
+@import './components/UserShow/style.scss';
+
+@import url('https://fonts.googleapis.com/css2?family=Space+Grotesk:wght@300;614&display=swap');
+
+
+#root {
+    padding-top: 100px;
+}
 
 .card {
     margin: 20px;
+    font-family: 'Space Grotesk', sans-serif;
 }

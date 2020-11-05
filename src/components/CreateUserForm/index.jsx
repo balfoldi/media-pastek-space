@@ -8,10 +8,11 @@ import {
   fetchUserSuccess,
   fetchUserFailure,
 } from "./../../redux";
-import Cookies from 'js-cookie'
-
+import Cookies from "js-cookie";
 
 const CreateUserForm = () => {
+  
+  const [input, setInput] = useState({});
   const dispatch = useDispatch();
   const fetchState = useSelector((state) => state.userCreate);
   const fetchError = useSelector((state) => state.userCreate.error);
@@ -41,7 +42,8 @@ const CreateUserForm = () => {
           } else {
             console.log(response.user);
             dispatch(fetchUserSuccess(response.user));
-            Cookies.set("token", response.jwt)
+            Cookies.set("token", response.jwt);
+            Cookies.set("user", response.user);
           }
           console.log(fetchState);
         });
@@ -50,7 +52,6 @@ const CreateUserForm = () => {
   const clickFetch = () => {
     dispatch(fetchUser());
   };
-  const [input, setInput] = useState({});
 
   const handleInputChange = (event) => {
     setInput({
@@ -59,11 +60,10 @@ const CreateUserForm = () => {
     });
   };
 
-
   return (
     <>
       <Form className="mt-5">
-      <h1>Inscription</h1>
+        <h1>Inscription</h1>
         <Form.Group>
           <Form.Label>Username</Form.Label>
           <Form.Control
@@ -97,12 +97,18 @@ const CreateUserForm = () => {
           />
         </Form.Group>
       </Form>
-      <Button className="mb-5" onClick={() => clickFetch()} variant="primary" type="submit">
+      <Button
+        className="mb-5"
+        onClick={() => clickFetch()}
+        variant="primary"
+        type="submit"
+      >
         Sign up
       </Button>
       {fetchUserName.username && (
         <Alert key="success" variant="success">
-          Welcome to the best social media of the pastek planet, {fetchUserName.username} !
+          Welcome to the best social media of the pastek planet,{" "}
+          {fetchUserName.username} !
         </Alert>
       )}
       {fetchError && (
