@@ -1,2 +1,2 @@
 <h1>Made with 🍉🍉🍉  by <a href="https://github.com/balfoldi"> Boris Alfodi 🍉 </a>, <a href="https://github.com/hsravo"> hsravo 🌚 </a> et <a href="https://github.com/RigateStudio"> Lucas Gautier ✨ </a>.</h1>
-<p>website link: <a>https://past-network.herokuapp.com/</a></p>
+<p>website link: <a href="https://past-network.herokuapp.com/">https://past-network.herokuapp.com/</a></p>
